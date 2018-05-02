@@ -13,5 +13,12 @@ class Dog
   end
 
   def self.drop_table
+    sql = "DROP TABLE dogs"
+    DB[:conn].execute(sql)
   end
+
+  def self.new_from_db(row)
+    sql = "SELECT * FROM dogs"
+    DB[:conn].execute(sql)
+    Dog.new(row[0], row[1], row[2])
 end
