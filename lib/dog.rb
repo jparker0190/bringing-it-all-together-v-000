@@ -27,4 +27,5 @@ class Dog
     sql = "SELECT * FROM dogs where name = ?"
     DB[:conn].execute(sql, self.name)
   end
+
 end
