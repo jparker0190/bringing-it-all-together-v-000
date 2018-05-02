@@ -26,4 +26,5 @@ class Dog
   def self.find_by_name(name)
     sql = "SELECT * FROM dogs where name = ?"
     DB[:conn].execute(sql, self.name)
+  end
 end
