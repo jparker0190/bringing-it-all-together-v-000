@@ -24,9 +24,9 @@ class Dog
   end
 
   def self.new_from_db(row)
-    sql = "SELECT * from students"
+    sql = "SELECT * from dogs"
     DB[:conn].execute(sql)
-    Student.new(row[0], row[1], row[2])
+    Dog.new(row[0], row[1], row[2])
   end
 
   def save
@@ -46,6 +46,12 @@ class Dog
     UPDATE dogs SET name = ?, breed = ? where id =?
     SQL
     DB[:conn].execute(sql, self.name, self.breed, self.id)
+  end
+
+  def self.create(name, breed)
+    stud = Dog.new(name, grade)
+    stud.save
+    stud
   end
 
 end
